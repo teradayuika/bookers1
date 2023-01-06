@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bookers</title>
+  </head>
+
+
+<% if flash[:notice] %>
+    <div class="flash">
+         <%= flash[:notice] %>
+    </div>
+<% end %>
+  <body>
+    
+    <h2>Editing Book</h2>
+   
+    <%= form_with model: @book, url: update_path(@book.id), method: :patch do |f| %>
+
+      <ladel>Title</ladel>
+      <%= f.text_field :title %>
+      
+      <ladel>Boby</ladel>
+      <%= f.text_area :body %><br>
+      
+      <%= f.submit 'Update Books' %>
+      
+    <% end %>
+    
+    <p><%= link_to 'Show', show_path(@book.id) %></p>
+    <p><a href="/books">Back</a></p>
+  </body>
+</html>
